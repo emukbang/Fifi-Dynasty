@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summary of the Characters in Fifi's Dynasty ✨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root{
+    --cream:#FFF8FB;
+    --pink-deep:#FFA9C9;
+    --pink-soft:#FFECF4;
+    --ink:#3D2C3B;
+    --sub:#7A5670;
+    --card:#FFFFFF;
+    --line:rgba(255,169,201,0.28);
+    --glow:rgba(255,169,201,0.16);
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 8% 4%, #FFF0F6 0%, transparent 40%),
+      radial-gradient(circle at 95% 12%, #FFF4F9 0%, transparent 35%),
+      var(--cream);
+    color:var(--ink);
+    font-family:'Nunito', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px 100px; }
+  h1,h2,h3{ font-family:'Fredoka', sans-serif; font-weight:600; margin:0; }
+  header{ padding:64px 24px 12px; text-align:center; position:relative; }
+  h1{
+    font-size:clamp(2.1rem, 5.5vw, 3.4rem); letter-spacing:-0.01em; margin-bottom:14px;
+    background:linear-gradient(100deg, #FFA9C9, #D9A9F0 60%, #FFC2DC);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header p.lede{ font-size:1.08rem; max-width:560px; margin:0 auto; color:var(--sub); line-height:1.65; }
+  .strip{ display:flex; justify-content:center; gap:12px; margin:28px auto 0; flex-wrap:wrap; }
+  .strip svg{ width:30px; height:30px; filter:drop-shadow(0 2px 4px rgba(255,169,201,0.22)); }
+
+  nav.kawaii-nav{
+    position:sticky; top:0; z-index:20; display:flex; justify-content:center; gap:8px;
+    padding:12px 16px; margin-top:26px; background:rgba(255,243,248,0.85); backdrop-filter:blur(8px);
+    border-bottom:1.5px solid var(--line); flex-wrap:wrap;
+  }
+  nav.kawaii-nav a{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:0.9rem; color:var(--pink-deep);
+    text-decoration:none; background:#fff; border:1.5px solid var(--line); border-radius:999px;
+    padding:8px 18px; transition:transform 0.15s, background 0.15s;
+  }
+  nav.kawaii-nav a:hover{ background:var(--pink-soft); transform:translateY(-1px); }
+
+  section{ margin-top:56px; }
+  .section-head{ margin-bottom:20px; }
+  .section-head h2{ font-size:1.55rem; margin-bottom:8px; }
+  .section-head p{ color:var(--sub); font-size:0.98rem; line-height:1.6; max-width:640px; margin:0; }
+
+  .tips{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+  .tip{ background:var(--card); border:1.5px solid var(--line); border-radius:20px; padding:18px 20px; box-shadow:0 4px 14px var(--glow); }
+  .tip .tip-label{ font-size:0.8rem; font-weight:800; color:var(--pink-deep); margin-bottom:6px; }
+  .tip p{ margin:0; font-size:0.92rem; line-height:1.55; color:var(--ink); }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+  .card{
+    background:var(--card); border-radius:26px; padding:24px 22px 22px;
+    border:1.5px solid var(--line); display:flex; flex-direction:column; align-items:center; text-align:center;
+    box-shadow:0 6px 18px var(--glow); transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 10px 24px rgba(255,169,201,0.24); }
+  .aura-wrap{ width:88px; height:88px; margin-bottom:10px; }
+  .name{ font-family:'Fredoka', sans-serif; font-weight:600; font-size:1.25rem; margin:0 0 6px; }
+  .badge{ display:inline-block; font-size:0.76rem; font-weight:800; padding:5px 14px; border-radius:999px; margin-bottom:10px; }
+  .blurb{ font-size:0.92rem; color:var(--sub); line-height:1.55; margin:0 0 14px; }
+  .stats{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .stat{ font-size:0.72rem; background:var(--pink-soft); padding:5px 10px; border-radius:10px; color:var(--ink); }
+  .stat b{ color:var(--pink-deep); }
+
+  .legend{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 6px; align-items:center; }
+  .legend button{
+    display:flex; align-items:center; gap:6px; font-size:0.82rem; font-family:'Nunito',sans-serif;
+    color:var(--ink); background:var(--card); border:1.5px solid var(--line); border-radius:999px;
+    padding:6px 14px; cursor:pointer; transition:opacity 0.15s, background 0.15s, color 0.15s; font-weight:700;
+  }
+  .legend button .dot{ width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .legend button.active{ background:var(--pink-deep); color:#fff; border-color:var(--pink-deep); }
+  .legend button.active .dot{ box-shadow:0 0 0 2px #fff inset; }
+  .legend .reset-btn{ background:transparent; border-style:dashed; color:var(--sub); font-weight:700; }
+  .legend-hint{ width:100%; font-size:0.78rem; color:var(--sub); margin:2px 0 16px; }
+
+  .scale{ display:flex; align-items:center; gap:8px; margin:14px 0 4px; font-size:0.78rem; color:var(--sub); font-weight:700; }
+  .scale .bar{ width:150px; height:8px; border-radius:6px; }
+
+  .panel{
+    display:grid; grid-template-columns:minmax(220px,320px) 1fr; gap:22px; align-items:start;
+    background:var(--card); border:1.5px solid var(--line); border-radius:26px; padding:22px;
+    box-shadow:0 6px 18px var(--glow);
+  }
+  .domain-block{ margin-top:32px; }
+  .domain-block h3{ font-size:1.25rem; margin-bottom:4px; }
+  .domain-block .domain-desc{ color:var(--sub); font-size:0.92rem; margin:0 0 4px; line-height:1.55; }
+  .domain-block .facet-list{ color:var(--sub); font-size:0.82rem; margin:0 0 16px; font-style:italic; }
+
+  table{ border-collapse:separate; border-spacing:0 4px; width:100%; white-space:nowrap; }
+  th{ font-size:0.72rem; color:var(--sub); font-weight:800; padding:5px 8px; text-align:center; }
+  th:first-child{ text-align:left; }
+  td{ font-size:0.8rem; padding:6px 8px; text-align:center; border-radius:8px; }
+  td.name-cell{ text-align:left; display:flex; align-items:center; gap:6px; font-weight:700; background:transparent !important; }
+  td.name-cell .dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  tr{ transition:opacity 0.15s, box-shadow 0.15s; }
+
+  footer{ text-align:center; margin-top:70px; color:#8C6B80; font-size:0.85rem; }
+
+  .facet-defs{ margin-top:18px; }
+  .facet-defs-label{ font-size:0.78rem; font-weight:800; color:var(--pink-deep); margin-bottom:10px; }
+  .glossary-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px; }
+  .gterm{ background:var(--pink-soft); border-radius:16px; padding:12px 14px; }
+  .gterm .gname{ font-weight:800; font-size:0.86rem; margin-bottom:3px; color:var(--ink); }
+  .gterm .gdesc{ font-size:0.8rem; color:var(--sub); line-height:1.45; margin:0; }
+
+  @media (max-width:640px){ .panel{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Summary of the Characters in Fifi's Dynasty ✨</h1>
+  <p class="lede">Everyone in the dynasty took the same personality test &mdash; the IPIP&#8209;NEO, based on the Big Five model. This page turns those results into something easy to read, so you can see what makes each person tick and how they compare to one another. 🎀</p>
+  <div class="strip" id="strip"></div>
+</header>
+
+<nav class="kawaii-nav">
+  <a href="#home">🏠 Home</a>
+  <a href="#howto">💡 How to read</a>
+  <a href="#compare">📊 Compare</a>
+  <a href="#traits">🔍 Trait details</a>
+</nav>
+
+<div class="wrap">
+
+  <section id="home">
+    <div class="section-head">
+      <h2>Meet the cast 💗</h2>
+      <p>Each person's badge isn't just "their own highest score" &mdash; it's the specific facet where they stand out most compared to everyone else in the group. That's what makes each one different.</p>
+    </div>
+    <div class="grid" id="cast-grid"></div>
+  </section>
+
+  <section id="howto">
+    <div class="section-head">
+      <h2>How to read this page</h2>
+      <p>A quick primer before you dive in &mdash; it'll make everything below make a lot more sense.</p>
+    </div>
+    <div class="tips">
+      <div class="tip"><div class="tip-label">The five traits</div><p>The Big Five breaks personality into five ingredients everyone has in different amounts: Extraversion, Agreeableness, Conscientiousness, Neuroticism, and Openness. Each one splits into six more specific facets.</p></div>
+      <div class="tip"><div class="tip-label">What the numbers mean</div><p>Scores are percentiles from 0&ndash;99. A score of 80 on a trait means that person is higher on it than about 80% of people &mdash; it's relative, not a grade. Nothing here is good or bad, just different.</p></div>
+      <div class="tip"><div class="tip-label">The shapes and colors</div><p>Each radar chart is a personality "shape" &mdash; the bigger the shape reaches toward an edge, the higher that score. The heatmap tables use color instead of shape: white is low, hot pink is high.</p></div>
+      <div class="tip"><div class="tip-label">Comparing people</div><p>Click one or more names in any name list to spotlight that whole group everywhere on the page &mdash; on every chart and every table at once. Click a name again to release just that one, or hover a name for a quick peek.</p></div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="section-head">
+      <h2>How everyone compares, at a glance</h2>
+      <p>This is the big-picture view: each person's score on all five broad traits, side by side. Use it to spot who's similar, who's an outlier, and who balances each other out.</p>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="legend-hint">Select as many people as you like to compare them side by side.</div>
+    <div class="panel">
+      <div style="position:relative;width:100%;height:280px;"><canvas id="domainRadar" role="img" aria-label="Radar chart of five domain scores for everyone in the dynasty"></canvas></div>
+      <div style="overflow-x:auto;"><div id="domainTableWrap"></div></div>
+    </div>
+    <div class="scale">
+      <span>0 (low)</span>
+      <div class="bar" style="background: linear-gradient(to right, #ffffff, #FFACCB);"></div>
+      <span>99 (high)</span>
+    </div>
+  </section>
+
+  <section id="traits">
+    <div class="section-head">
+      <h2>The details, trait by trait</h2>
+      <p>Each of the five traits is really made up of six more specific facets. Here's every person's shape and score for each one, along with what each facet actually means.</p>
+    </div>
+    <div id="domain-sections"></div>
+  </section>
+
+  <footer>Made from IPIP&#8209;NEO results. Scores are relative percentiles, not judgments &mdash; everyone here is a little different, and that's the fun part. 💕</footer>
+</div>
+
+<script>
+const people = [
+  {name:"EW", color:"#FF8FAB", domains:{EXT:64,AGR:71,CON:9,NEU:50,OPE:60}, facets:{EXT:[77,71,37,19,48,92],AGR:[87,21,52,58,68,87],CON:[20,1,62,30,3,23],NEU:[60,45,38,49,55,56],OPE:[59,40,70,61,32,72]}, badge:"Believes in people", signature:"Trust", blurb:"Assumes the best about everyone, always."},
+  {name:"Fifi", color:"#B8A6E8", domains:{EXT:16,AGR:1,CON:73,NEU:78,OPE:0}, facets:{EXT:[2,9,86,46,22,13],AGR:[6,0,1,22,32,1],CON:[68,75,52,48,78,71],NEU:[94,60,87,73,17,75],OPE:[50,17,0,4,1,18]}, badge:"Always on alert", signature:"Anxiety", blurb:"Feels everything, twice as hard."},
+  {name:"tropicalass", color:"#57C6A6", domains:{EXT:35,AGR:32,CON:75,NEU:28,OPE:9}, facets:{EXT:[44,9,13,87,53,51],AGR:[12,61,33,51,87,0],CON:[55,97,38,68,86,37],NEU:[22,43,38,26,85,4],OPE:[1,17,17,88,25,27]}, badge:"Never sits still", signature:"Activity level", blurb:"Can't sit still, won't sit still."},
+  {name:"David", color:"#E3A72E", domains:{EXT:33,AGR:20,CON:90,NEU:16,OPE:11}, facets:{EXT:[11,21,39,35,63,71],AGR:[0,38,33,80,32,27],CON:[96,82,77,68,58,91],NEU:[22,3,15,54,36,30],OPE:[61,5,60,27,1,47]}, badge:"Looks before leaping", signature:"Cautiousness", blurb:"Measures twice, cuts once."},
+  {name:"dapigu", color:"#F2A65A", domains:{EXT:31,AGR:93,CON:99,NEU:0,OPE:77}, facets:{EXT:[54,4,69,46,6,61],AGR:[85,90,91,93,15,96],CON:[96,97,87,86,93,85],NEU:[1,1,22,26,0,1],OPE:[61,54,60,17,90,97]}, badge:"Radically honest", signature:"Morality", blurb:"Painfully, refreshingly honest."},
+  {name:"jason", color:"#5C97D6", domains:{EXT:16,AGR:15,CON:77,NEU:56,OPE:25}, facets:{EXT:[26,29,0,25,53,40],AGR:[38,27,4,61,15,17],CON:[89,67,52,68,68,71],NEU:[48,27,38,73,85,57],OPE:[2,44,9,37,65,68]}, badge:"Quietly confident", signature:"Self-efficacy", blurb:"Doesn't say much, gets it done."},
+  {name:"Starlike Romp", color:"#D874C4", domains:{EXT:31,AGR:61,CON:1,NEU:86,OPE:74}, facets:{EXT:[26,29,69,35,63,6],AGR:[20,38,59,80,80,61],CON:[0,1,65,1,4,46],NEU:[31,51,96,94,99,66],OPE:[50,73,81,59,90,27]}, badge:"Full send", signature:"Immoderation", blurb:"Leaps before looking, every time."},
+  {name:"EggsNut", color:"#F2685A", domains:{EXT:95,AGR:36,CON:12,NEU:5,OPE:53}, facets:{EXT:[87,87,89,54,89,94],AGR:[76,2,84,58,5,33],CON:[60,3,1,46,42,9],NEU:[4,6,15,7,30,15],OPE:[69,61,70,45,37,30]}, badge:"Thrill seeker", signature:"Excitement-seeking", blurb:"Chases the next thrill."},
+  {name:"Chris", color:"#3FB8AA", domains:{EXT:44,AGR:49,CON:90,NEU:20,OPE:56}, facets:{EXT:[13,28,37,83,71,62],AGR:[4,53,79,27,99,19],CON:[76,96,88,94,90,36],NEU:[2,1,56,54,55,15],OPE:[55,51,32,85,84,14]}, badge:"Humble overachiever", signature:"Modesty", blurb:"Works the hardest, brags the least."}
+];
+
+const domainOrder = ["EXT","AGR","CON","NEU","OPE"];
+const domainLabels = ["Extraversion","Agreeableness","Conscientiousness","Neuroticism","Openness"];
+const domainInfo = [
+  {key:"EXT", label:"Extraversion", desc:"How much someone is energized by people, action, and excitement versus quiet, solo time.", facets:["Friendliness","Gregariousness","Assertiveness","Activity level","Excitement-seeking","Cheerfulness"]},
+  {key:"AGR", label:"Agreeableness", desc:"How much someone prioritizes getting along with others versus looking out for themselves.", facets:["Trust","Morality","Altruism","Cooperation","Modesty","Sympathy"]},
+  {key:"CON", label:"Conscientiousness", desc:"How organized, disciplined, and goal-driven someone is versus spontaneous and easygoing.", facets:["Self-efficacy","Orderliness","Dutifulness","Achievement-striving","Self-discipline","Cautiousness"]},
+  {key:"NEU", label:"Neuroticism", desc:"How intensely and often someone feels stress, worry, or other tough emotions versus staying steady.", facets:["Anxiety","Anger","Depression","Self-consciousness","Immoderation","Vulnerability"]},
+  {key:"OPE", label:"Openness", desc:"How drawn someone is to new ideas, art, and imagination versus practical, familiar things.", facets:["Imagination","Artistic interests","Emotionality","Adventurousness","Intellect","Liberalism"]}
+];
+const facetDefs = {
+  "Friendliness":{micro:"warm toward others", full:"How warmly and openly someone shows they like other people."},
+  "Gregariousness":{micro:"loves crowds", full:"How much someone enjoys being around groups and the buzz of crowds."},
+  "Assertiveness":{micro:"takes charge", full:"How much someone likes to speak up, take charge, and lead a group."},
+  "Activity level":{micro:"always moving", full:"How fast-paced and busy someone's day-to-day life tends to be."},
+  "Excitement-seeking":{micro:"craves thrills", full:"How much someone craves stimulation, risk, and a bit of danger."},
+  "Cheerfulness":{micro:"genuinely upbeat", full:"How often someone feels real, energetic happiness and optimism."},
+  "Trust":{micro:"assumes good intent", full:"How much someone assumes other people are honest and mean well."},
+  "Morality":{micro:"brutally upfront", full:"How straightforward and unfiltered someone is, versus guarded or diplomatic."},
+  "Altruism":{micro:"helping feels good", full:"How rewarding someone personally finds it to help other people."},
+  "Cooperation":{micro:"avoids conflict", full:"How willing someone is to compromise or back down to avoid a fight."},
+  "Modesty":{micro:"downplays themselves", full:"How little someone likes to claim they're better than other people."},
+  "Sympathy":{micro:"feels others' pain", full:"How easily someone is emotionally moved by other people's suffering."},
+  "Self-efficacy":{micro:"trusts their own ability", full:"How confident someone is in their own ability to get things done."},
+  "Orderliness":{micro:"loves routine & plans", full:"How organized someone is, and how much they lean on routines and lists."},
+  "Dutifulness":{micro:"bound by obligation", full:"How strongly someone feels bound by rules, promises, and obligations."},
+  "Achievement-striving":{micro:"chases ambitious goals", full:"How hard someone pushes themselves toward big, ambitious goals."},
+  "Self-discipline":{micro:"finishes what they start", full:"How well someone can push through distraction and finish what they start."},
+  "Cautiousness":{micro:"thinks before acting", full:"How much someone stops to weigh options before acting or deciding."},
+  "Anxiety":{micro:"always a little on edge", full:"How easily someone feels tense, nervous, or braced for something bad."},
+  "Anger":{micro:"quick to feel wronged", full:"How easily someone feels resentful or enraged when things don't go their way."},
+  "Depression":{micro:"prone to low moods", full:"How often someone feels sad, discouraged, or low on energy."},
+  "Self-consciousness":{micro:"worries what others think", full:"How sensitive someone is to being judged, embarrassed, or watched."},
+  "Immoderation":{micro:"gives in to temptation", full:"How hard someone finds it to resist cravings and short-term temptation."},
+  "Vulnerability":{micro:"rattled under pressure", full:"How easily someone panics or feels overwhelmed when things get stressful."},
+  "Imagination":{micro:"lives in daydreams", full:"How much someone uses fantasy and daydreaming to enrich their world."},
+  "Artistic interests":{micro:"drawn to beauty", full:"How drawn someone is to beauty, in art and in nature."},
+  "Emotionality":{micro:"in touch with feelings", full:"How aware someone is of their own feelings, and how openly they show them."},
+  "Adventurousness":{micro:"seeks new experiences", full:"How eager someone is to try new things and break from routine."},
+  "Intellect":{micro:"loves playing with ideas", full:"How much someone enjoys abstract ideas, debate, and mental puzzles."},
+  "Liberalism":{micro:"questions the rules", full:"How willing someone is to question authority, rules, and tradition."}
+};
+
+function cellColor(v){
+  const t = Math.max(0, Math.min(1, v/99));
+  const lerp = (a,b,k)=>Math.round(a+(b-a)*k);
+  const r = lerp(0xff,0xFF,t), g = lerp(0xff,0xAC,t), b = lerp(0xff,0xCB,t);
+  return `rgb(${r},${g},${b})`;
+}
+function textColor(v){
+  const t = Math.max(0, Math.min(1, v/99));
+  const lum = 255*(1-t) + (0.299*0xFF+0.587*0xAC+0.114*0xCB)*t;
+  return lum < 150 ? '#fff' : '#3D2C3B';
+}
+function topDomain(domains){ return domainOrder.reduce((a,b)=> domains[a] >= domains[b] ? a : b); }
+
+function auraSVG(domains, color, size){
+  const cx=size/2, cy=size/2, maxR=size/2-4, n=domainOrder.length;
+  const pts = domainOrder.map((k,i)=>{
+    const angle=(Math.PI*2*i)/n - Math.PI/2, r=(domains[k]/99)*maxR;
+    return `${(cx+r*Math.cos(angle)).toFixed(1)},${(cy+r*Math.sin(angle)).toFixed(1)}`;
+  }).join(' ');
+  const guide = domainOrder.map((k,i)=>{
+    const angle=(Math.PI*2*i)/n - Math.PI/2;
+    return `${(cx+maxR*Math.cos(angle)).toFixed(1)},${(cy+maxR*Math.sin(angle)).toFixed(1)}`;
+  }).join(' ');
+  return `<svg viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Personality shape">
+    <polygon points="${guide}" fill="none" stroke="rgba(255,169,201,0.28)" stroke-width="1"/>
+    <polygon points="${pts}" fill="${color}33" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+const stripEl = document.getElementById('strip');
+people.forEach(p=>{
+  const d = document.createElement('div');
+  d.innerHTML = auraSVG(p.domains, p.color, 30);
+  stripEl.appendChild(d.firstElementChild);
+});
+
+const castGrid = document.getElementById('cast-grid');
+people.forEach(p=>{
+  const top = topDomain(p.domains);
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="aura-wrap">${auraSVG(p.domains, p.color, 88)}</div>
+    <p class="name">${p.name}</p>
+    <span class="badge" style="background:${p.color}26;color:${p.color};">${p.badge}</span>
+    <p class="blurb">${p.blurb}</p>
+    <div class="stats">
+      <span class="stat" title="${facetDefs[p.signature] ? facetDefs[p.signature].full : ''}">Stands out for &middot; <b>${p.signature}</b> (${facetDefs[p.signature] ? facetDefs[p.signature].micro : ''})</span>
+      <span class="stat">Broad high &middot; <b>${domainInfo.find(d=>d.key===top).label}</b></span>
+    </div>
+  `;
+  castGrid.appendChild(card);
+});
+
+let selected = new Set();
+let hovered = null;
+const charts = [];
+const tableRows = [];
+
+function stateFor(i){
+  if(selected.size > 0) return selected.has(i) ? 'hi' : 'off';
+  if(hovered !== null) return hovered === i ? 'hi' : 'dim';
+  return 'on';
+}
+function applyState(){
+  charts.forEach(chart=>{
+    chart.data.datasets.forEach((ds,i)=>{
+      const s = stateFor(i);
+      if(s === 'off'){ ds.hidden = true; }
+      else {
+        ds.hidden = false;
+        if(s === 'hi'){ ds.borderWidth=3; ds.borderColor=people[i].color; ds.backgroundColor=people[i].color+'33'; ds.order=-1; }
+        else if(s === 'dim'){ ds.borderWidth=1; ds.borderColor=people[i].color+'33'; ds.backgroundColor='transparent'; ds.order=1; }
+        else { ds.borderWidth=1.5; ds.borderColor=people[i].color; ds.backgroundColor=people[i].color+'12'; ds.order=0; }
+      }
+    });
+    chart.update('none');
+  });
+  document.querySelectorAll('.legend-item').forEach((el,i)=>{
+    const s = stateFor(i);
+    el.classList.toggle('active', selected.has(i));
+    el.style.opacity = (s === 'off' || s === 'dim') ? '0.4' : '1';
+  });
+  tableRows.forEach(rowsForTable=>{
+    rowsForTable.forEach((row,i)=>{
+      const s = stateFor(i);
+      row.style.opacity = (s === 'off' || s === 'dim') ? '0.3' : '1';
+      row.style.boxShadow = s === 'hi' ? 'inset 0 0 0 1.5px var(--pink-deep)' : 'none';
+    });
+  });
+}
+
+const legendEl = document.getElementById('legend');
+const resetBtn = document.createElement('button');
+resetBtn.className = 'reset-btn';
+resetBtn.textContent = '✨ Show everyone';
+resetBtn.addEventListener('click', ()=>{ selected.clear(); hovered=null; applyState(); });
+legendEl.appendChild(resetBtn);
+
+people.forEach((p,i)=>{
+  const item = document.createElement('button');
+  item.className = 'legend-item';
+  item.innerHTML = `<span class="dot" style="background:${p.color};"></span>${p.name}`;
+  item.addEventListener('mouseenter', ()=>{ if(selected.size===0){ hovered=i; applyState(); } });
+  item.addEventListener('mouseleave', ()=>{ if(selected.size===0){ hovered=null; applyState(); } });
+  item.addEventListener('click', ()=>{
+    if(selected.has(i)) selected.delete(i); else selected.add(i);
+    hovered = null;
+    applyState();
+  });
+  legendEl.appendChild(item);
+});
+
+const domainTableWrap = document.getElementById('domainTableWrap');
+let dthead = '<tr><th style="text-align:left;">Person</th>' + domainInfo.map(d=>`<th>${d.label}</th>`).join('') + '</tr>';
+let dtrows = '';
+people.forEach((p,i)=>{
+  dtrows += `<tr data-idx="${i}"><td class="name-cell"><span class="dot" style="background:${p.color};"></span>${p.name}</td>` +
+    domainOrder.map(k=>{ const v=p.domains[k]; return `<td style="background:${cellColor(v)};color:${textColor(v)};font-weight:700;">${v}</td>`; }).join('') + '</tr>';
+});
+domainTableWrap.innerHTML = `<table>${dthead}${dtrows}</table>`;
+tableRows.push(Array.from(domainTableWrap.querySelectorAll('tr[data-idx]')));
+
+const domainChart = new Chart(document.getElementById('domainRadar'), {
+  type:'radar',
+  data:{ labels:domainLabels, datasets:people.map(p=>({ label:p.name, data:domainOrder.map(k=>p.domains[k]), borderColor:p.color, backgroundColor:p.color+'12', borderWidth:1.5, pointRadius:1.5, pointBackgroundColor:p.color })) },
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:c=>`${c.dataset.label}: ${c.raw}` } } },
+    scales:{ r:{ min:0,max:99, ticks:{display:true,stepSize:33,color:'#9C7690',backdropColor:'transparent',font:{size:9}}, grid:{color:'#FFF1F7'}, angleLines:{color:'#FFF1F7'}, pointLabels:{color:'#5C3F55',font:{size:10}} } } }
+});
+charts.push(domainChart);
+
+const domainSections = document.getElementById('domain-sections');
+domainInfo.forEach(d=>{
+  const section = document.createElement('div');
+  section.className = 'domain-block';
+  section.innerHTML = `<h3>${d.label}</h3>
+    <p class="domain-desc">${d.desc}</p>
+    <p class="facet-list">Made up of: ${d.facets.join(', ')}.</p>`;
+
+  const panel = document.createElement('div');
+  panel.className = 'panel';
+  panel.innerHTML = `<div style="position:relative;width:100%;height:260px;"><canvas role="img" aria-label="${d.label} facet radar for everyone in the dynasty"></canvas></div>
+    <div style="overflow-x:auto;"><div class="table-slot"></div></div>`;
+  section.appendChild(panel);
+
+  const scale = document.createElement('div');
+  scale.className = 'scale';
+  scale.innerHTML = `<span>0 (low)</span><div class="bar" style="background: linear-gradient(to right, #ffffff, #FFACCB);"></div><span>99 (high)</span>`;
+  section.appendChild(scale);
+
+  const defs = document.createElement('div');
+  defs.className = 'facet-defs';
+  defs.innerHTML = `<div class="facet-defs-label">What these facets mean</div>
+    <div class="glossary-grid">` +
+    d.facets.map(f=>`<div class="gterm"><div class="gname">${f}</div><p class="gdesc">${facetDefs[f] ? facetDefs[f].full : ''}</p></div>`).join('') +
+    `</div>`;
+  section.appendChild(defs);
+
+  domainSections.appendChild(section);
+
+  let thead = '<tr><th style="text-align:left;">Person</th>' + d.facets.map(f=>`<th title="${facetDefs[f] ? facetDefs[f].full : ''}" style="cursor:help;">${f}</th>`).join('') + '</tr>';
+  let rowsHtml = '';
+  people.forEach((p,i)=>{
+    rowsHtml += `<tr data-idx="${i}"><td class="name-cell"><span class="dot" style="background:${p.color};"></span>${p.name}</td>` +
+      p.facets[d.key].map(v=>`<td style="background:${cellColor(v)};color:${textColor(v)};">${v}</td>`).join('') + '</tr>';
+  });
+  panel.querySelector('.table-slot').innerHTML = `<table>${thead}${rowsHtml}</table>`;
+
+  const ctx = panel.querySelector('canvas');
+  const chart = new Chart(ctx, {
+    type:'radar',
+    data:{ labels:d.facets, datasets:people.map(p=>({ label:p.name, data:p.facets[d.key], borderColor:p.color, backgroundColor:p.color+'12', borderWidth:1.5, pointRadius:1.5, pointBackgroundColor:p.color })) },
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:c=>`${c.dataset.label}: ${c.raw}` } } },
+      scales:{ r:{ min:0,max:99, ticks:{display:true,stepSize:33,color:'#9C7690',backdropColor:'transparent',font:{size:9}}, grid:{color:'#FFF1F7'}, angleLines:{color:'#FFF1F7'}, pointLabels:{color:'#5C3F55',font:{size:10}} } } }
+  });
+  charts.push(chart);
+  tableRows.push(Array.from(panel.querySelectorAll('tr[data-idx]')));
+});
+</script>
+</body>
+</html>
